@@ -1,16 +1,18 @@
 import { useContext } from 'react';
 import { ScrapeContext } from './ScrapeContext';
+import Table from './Table';
 
 export default function Data() {
-   const scrapeData = useContext(ScrapeContext);
-   console.log(scrapeData);
+   
+  const { scrapes } = useContext(ScrapeContext);
 
     return (
       <div>
-        <h2>Your Data: </h2>
-         <p>Hey {scrapeData.hey} </p> 
-         <p>Lets {scrapeData.lets} </p>
-         <p>Bless {scrapeData.bless} </p>
+        <h2>Twitter: </h2>
+        <Table scrapes = {scrapes.twitter}/>
+        <h2>Instagram: </h2>
+        <Table scrapes = {scrapes.instagram}/>
+        <ul />
       </div>
     );
 }

@@ -4,7 +4,7 @@ import Data from '../components/Data';
 export default function Home() {
     return (
     <Page>
-        <p>Homepage</p>
+        <h1>Home</h1>
         <Data/>
     </Page>
     );

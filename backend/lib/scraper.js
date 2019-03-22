@@ -3,7 +3,7 @@ import cheerio from 'cheerio';
 import db from './db';
 
 export async function getHTML(url) {
-  const {data: html } = await axios.get(url);
+  const { data: html } = await axios.get(url);
   return html;
 }
 
@@ -25,13 +25,13 @@ export async function getInstagramFollowers(html) {
 }
 
 export async function getInstagramCount() {
-  const html = await getHTML("https://instagram.com/vale_flyleaf");
+  const html = await getHTML("https://instagram.com/CherriePie4897");
   const instagramCount = await getInstagramFollowers(html);
   return instagramCount;
 }
 
 export async function getTwitterCount() {
-  const html = await getHTML('https://twitter.com/CherriePie4897');
+  const html = await getHTML('https://twitter.com/vale_flyleaf');
   const twitterCount = await getTwitterFollowers(html);
   return twitterCount;
 }
@@ -41,10 +41,12 @@ export async function runCron() {
     getInstagramCount(),
     getTwitterCount()
   ]);
+
   console.log(iCount, tCount);
-  db.get('twitter').push({
-    date: Date.now(),
-    count: tCount,
+  db.get('twitter')
+    .push({
+      date: Date.now(),
+      count: tCount,
   })
     .write();
 
