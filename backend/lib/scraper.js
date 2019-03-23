@@ -25,13 +25,13 @@ export async function getInstagramFollowers(html) {
 }
 
 export async function getInstagramCount() {
-  const html = await getHTML("https://instagram.com/CherriePie4897");
+  const html = await getHTML("https://instagram.com/realdonaldtrump");
   const instagramCount = await getInstagramFollowers(html);
   return instagramCount;
 }
 
 export async function getTwitterCount() {
-  const html = await getHTML('https://twitter.com/vale_flyleaf');
+  const html = await getHTML('https://twitter.com/realDonaldTrump');
   const twitterCount = await getTwitterFollowers(html);
   return twitterCount;
 }
